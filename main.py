@@ -25,11 +25,21 @@ def signin():
 def signup():
     countries = dict(countries_for_language('en'))
     if request.method == "POST":
-        name = request.form["name"]
+        req = request.form
+        missing = []
+        for field, input in req.items():
+            if input == "":
+                missing.append(field)
 
-        if name:
-            return render_template('signup.html', name="Please fill out this field.")
+        if missing:
+            feedback = " {}".format(', '.join(missing))
+            return render_template('signup.html', countries=countries,
+                                   feedback=feedback)
+        if req["Email"] != req["Confirm email"]:
+            return render_template('signup.html', countries=countries,
+                                   email_match="Emails don't match")
     return render_template('signup.html', countries=countries)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
