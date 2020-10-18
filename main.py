@@ -37,7 +37,10 @@ def signup():
                                    feedback=feedback)
         if req["Email"] != req["Confirm email"]:
             return render_template('signup.html', countries=countries,
-                                   email_match="Emails don't match")
+                                   dont_match="Emails don't match")
+        if req["Password"] != req["Confirm password"]:
+            return render_template('signup.html', countries=countries,
+                                   dont_match="Passwords don't match")
     return render_template('signup.html', countries=countries)
 
 

@@ -62,9 +62,9 @@
     </div>
     {% endif %}
 
-    {% if email_match %}
+    {% if dont_match %}
     <div class="alert alert-danger">
-      <strong>{{ email_match }}</strong>
+      <strong>{{ dont_match }}</strong>
     </div>
     {% endif %}
 
@@ -100,11 +100,11 @@
         <!-- Pwd and comfirm Pwd -->
         <div class="form-row">
           <div class="col">
-            <label for="pwd" class="mb-2 mr-sm-2"><h4><small>Password<span> *</span></small></h4></label>
+            <label for="password" class="mb-2 mr-sm-2"><h4><small>Password<span> *</span></small></h4></label>
             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="Password">
           </div>
           <div class="col">
-            <label for="pwd1" class="mb-2 mr-sm-2"><h4><small>Confirm password<span> *</span></small></h4></label>
+            <label for="Confirm password" class="mb-2 mr-sm-2"><h4><small>Confirm password<span> *</span></small></h4></label>
             <input type="password" class="form-control" placeholder="Enter password" name="Confirm password">
           </div>
         </div><br>
