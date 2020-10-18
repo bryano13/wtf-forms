@@ -56,6 +56,18 @@
   <div class="container mt-3">
     <h1 class="text-primary">Sign Up <span class="badge badge-success">Free!</span></h1>
       <br>
+    {% if feedback %}
+    <div class="alert alert-danger">
+      <strong>Missing fields for:</strong>{{ feedback }}
+    </div>
+    {% endif %}
+
+    {% if email_match %}
+    <div class="alert alert-danger">
+      <strong>{{ email_match }}</strong>
+    </div>
+    {% endif %}
+
         <!-- Form beginning -->
     <form action="/signup" method="POST">
           <!-- Name and Last name -->
@@ -134,17 +146,6 @@
         <!-- Button -->
           <button type="submit" class="btn btn-primary mx-auto d-block btn-lg">Submit</button>
     </form><br>
-    {% if feedback %}
-    <div class="alert alert-danger">
-      <strong>Missing fields for:</strong>{{ feedback }}
-    </div>
-    {% endif %}
-
-    {% if email_match %}
-    <div class="alert alert-danger">
-      <strong>{{ email_match }}</strong>
-    </div>
-    {% endif %}
   </div>
 
     
